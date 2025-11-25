@@ -1,12 +1,12 @@
 // refreshes db with classes from registrar
-import { scrapeClasses, scrapeClassDetails } from "../utils/scapehandler"
+import { scrapeClasses } from "#imports"
 
 export default defineEventHandler(async (event) => {
     console.log("Refreshing classes database...")
 
     const db = useDatabase()
 
-    const classesData = await scrapeClasses()
+    const classesData = await scrapeClasses("202601")
 
 
     if (!classesData) {

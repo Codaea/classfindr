@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
         prerequisites = ${parsePrerequisites(d.registration_restrictions)}
 
 
-        WHERE crn = ${course.crn} AND code = ${course.code};`
+        WHERE crn = ${course.crn} AND code = ${course.code} AND term = ${course.term};`
         console.log(`Updated details for CRN: ${course.crn}, Code: ${course.code}`)
         console.log(`${rows.length - i - 1} courses left to process.`)
         await new Promise(resolve => setTimeout(resolve, 10)); // wait 1 second between requests to avoid rate limiting
