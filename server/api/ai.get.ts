@@ -3,14 +3,10 @@ import OpenAI from "openai"
 export default defineEventHandler(async (event) => {
     const query = getQuery(event);
     const db = useDatabase()
-    console.log("API KEY:", process.env.GEMINIAPIKEY)
     const client = new OpenAI({
-        apiKey: process.env.GEMINIAPIKEY,
+        apiKey: process.env.OPENAI_API_KEY,
         baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
     })
-
-
-    const today = new Date().toISOString().split('T')[0]
 
     // find date looks something like 0 is monday, 1 is tuesday, ..., 6 is sunday
     let dayOfWeek = new Date().getDay()
