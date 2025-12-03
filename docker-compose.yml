@@ -15,6 +15,12 @@ services:
     restart: always
     ports:
       - 8090:8080
+  web:
+    build: .
+    ports:
+      - "8031:3000"
+    depends_on:
+      - db
 volumes:
   data:
     external: true
